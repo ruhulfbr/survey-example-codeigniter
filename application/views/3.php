@@ -38,7 +38,6 @@
 
 <script type="text/javascript">
 	$("#form1").submit(function(event){
-		event.preventDefault();
 		var data = $(this).serializeArray();
 		var json = JSON.parse(localStorage.getItem('formData'));
 		$.each(data,function(){

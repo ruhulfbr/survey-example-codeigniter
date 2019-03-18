@@ -34,7 +34,6 @@
 	</div>
 	<script type="text/javascript">
 		$("#form1").submit(function(event){
-			event.preventDefault();
 			var data = $(this).serializeArray();
 			var json = {};
 			$.each(data,function(){

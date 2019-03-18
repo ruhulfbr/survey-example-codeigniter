@@ -63,12 +63,7 @@ class Welcome extends CI_Controller {
 		$data['nation'] = $this->input->post('nation');
 		$data['gender'] = $this->input->post('gender');
 		$data['pesha'] = $this->input->post('pesha');
-
-		$insert = $this->db->insert('survey',$data);
+		$this->db->insert('survey',$data);
 		redirect('welcome/success');
-	}
-	public function pagla(){
-		$all_data = $this->session->all_userdata();
-		echo json_encode($all_data);
 	}
 }
