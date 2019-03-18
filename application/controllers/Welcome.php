@@ -55,16 +55,20 @@ class Welcome extends CI_Controller {
 	public function submit(){
 		// $next = $this->input->post('next');
 		$data = array();
+		$data['name'] = $this->input->post('name');
+		$data['email'] = $this->input->post('email');
+		$data['age'] = $this->input->post('age');
+		$data['city'] = $this->input->post('city');
+		$data['phone'] = $this->input->post('phone');
+		$data['nation'] = $this->input->post('nation');
 		$data['gender'] = $this->input->post('gender');
 		$data['pesha'] = $this->input->post('pesha');
-		$this->session->set_userdata($data);
-		$all_data = $this->session->all_userdata();
-		// echo json_encode($all_data);
-		$insert = $this->db->insert('survey',$all_data);
-		if($insert){
-			$this->session->sess_destroy();
-		}
-		session_destroy();
+
+		$insert = $this->db->insert('survey',$data);
 		redirect('welcome/success');
+	}
+	public function pagla(){
+		$all_data = $this->session->all_userdata();
+		echo json_encode($all_data);
 	}
 }
